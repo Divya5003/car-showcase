@@ -11,22 +11,22 @@ export interface CustomButtonProps {
 }
 
 export interface SearchManufacturerProps {
-    manufacturer: string;
-    setManufacturer: (manufacturer: string) => void;
+    selected: string;
+    setSelected: (manufacturer: string) => void;
 }
 
 export interface CardProps {
     city_mpg: number;
-    class:string;
+    class: string;
     combination_mpg: number;
     cylinders: number;
     displacement: number;
-    drive:string;
-    fuel_type:string;
+    drive: string;
+    fuel_type: string;
     highway_mpg: number;
-    make:string;
-    model:string;
-    transmission:string;
+    make: string;
+    model: string;
+    transmission: string;
     year: number;
 }
 
@@ -36,4 +36,26 @@ export interface FilterProps {
     fuel: string;
     limit: number;
     model: string;
+}
+
+export interface OptionProps {
+    title: string;
+    value: string;
+}
+
+export interface CustomFilterProps {
+    title: string;
+    options: OptionProps[];
+    setFilter: (filter: any) => void;
+}
+
+export interface ShowMoreProps {
+    pageNumber: number;
+    isNext: boolean;
+    setLimit: (limit: number) => void;
+}
+
+export interface searchBarProps {
+    setModel: (model: string) => void;
+    setManufacturer: (manufacturer: string) => void;
 }
