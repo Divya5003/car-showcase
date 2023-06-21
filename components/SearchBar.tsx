@@ -24,8 +24,8 @@ const SearchBar = () => {
 
     const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (manufacturer === '' && model === '') {
-            return alert('Please fill in the search bar')
+        if (manufacturer.trim() === "" && model.trim() === "") {
+            return alert("Please provide some input");
         }
 
         updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
@@ -35,21 +35,21 @@ const SearchBar = () => {
         const searchParams = new URLSearchParams(window.location.search);
 
         if (model) {
-            searchParams.set('model', model);
+            searchParams.set("model", model);
         } else {
-            searchParams.delete('model');
+            searchParams.delete("model");
         }
 
         if (manufacturer) {
-            searchParams.set('manufacturer', manufacturer);
+            searchParams.set("manufacturer", manufacturer);
         } else {
-            searchParams.delete('manufacturer');
+            searchParams.delete("manufacturer");
         }
 
-        const newPathName = `${window.location.pathname}?${searchParams.toString()}`;
+        const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
 
-        router.push(newPathName);
-    }
+        router.push(newPathname);
+    };
 
     return (
         <form className='searchbar' onSubmit={handleSearch}>
